@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MobilLegend from "./pages/MobilLegend";
+import MobilLegend, {loader as heroLoader} from "./pages/MobilLegend";
 import AppLayout from "./routes/AppLayout";
 import ErrorPage from "./routes/ErrorPage";
 import Home from "./UI/Home";
@@ -17,6 +17,7 @@ const router = createBrowserRouter([
       {
         path: "/mobile-legend",
         element: <MobilLegend />,
+        loader: heroLoader,
       },
       {
         path:"currencyconverter",

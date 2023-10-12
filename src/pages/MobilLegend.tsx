@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { useState } from "react";
+import { getMobileLegend } from "../services/apiMobilLegend";
+import { useLoaderData } from "react-router-dom";
 
 interface Heroes {
   hero_name: string;
@@ -6,35 +9,34 @@ interface Heroes {
   hero_specially: string;
 }
 
+interface ApiResponse {
+  success: boolean;
+  status: number;
+  rowCount: number;
+  message: string;
+  hero: Heroes[];
+}
+
+export async function loader() {
+  const hero = await getMobileLegend();
+  return hero;
+}
+
 export default function MobilLegend() {
-    const [hero, setHero] = useState<Heroes[]>([]);
-  const [filtered, setFiltered] = useState<string>("");
-  const [searchResults, setSearchResults] = useState<Heroes[]>([]);
-
-  async function mobileLegend() {
-    try {
-      const res = await fetch("https://api.dazelpro.com/mobile-legends/hero");
-      const data = await res.json();
-      const heroesArray: Heroes[] = Object.values(data.hero);
-      setHero(heroesArray);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    mobileLegend();
-    const results =
-      filtered.length > 0
-        ? hero.filter((post) =>
-            `${post.hero_name} ${post.hero_role}`
-              .toLowerCase()
-              .includes(filtered.toLowerCase())
-          )
-        : hero;
-    setSearchResults(results);
-  }, [filtered, hero]);
+  const hero = useLoaderData() as ApiResponse;
   
+  const heroesArray: Heroes[] = Object.values(hero.hero)
+  const [filtered, setFiltered] = useState<string>("");
+
+  const results =
+  filtered.length > 0
+    ? heroesArray.filter((post) =>
+        `${post.hero_name} ${post.hero_role}`
+          .toLowerCase()
+          .includes(filtered.toLowerCase())
+      )
+    : heroesArray;
+
   return (
     <div>
       <div className="flex flex-col items-center">
@@ -45,14 +47,14 @@ export default function MobilLegend() {
           value={filtered}
           onChange={(e) => setFiltered(e.target.value)}
         />
-        <p>🗿 {hero.length} heroes found 🗿</p>
+        <p>🗿 {heroesArray.length} heroes found 🗿</p>
       </div>
       <div className="flex justify-center gap-2">
         <button className="btn btn-primary">Search</button>
         <button className="btn btn-primary">Reset</button>
       </div>
       <ul>
-        {searchResults.map((data) => (
+        {results.map((data) => (
           <li className="p-3">
             <div className="shadow-xl card w-96 bg-base-100">
               <div className="card-body">
@@ -71,5 +73,5 @@ export default function MobilLegend() {
         ))}
       </ul>
     </div>
-  )
+  );
 }
