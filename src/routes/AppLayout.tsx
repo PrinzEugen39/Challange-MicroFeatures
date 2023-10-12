@@ -12,8 +12,8 @@ export default function AppLayout() {
       {isLoading && <Loader />}
       <Header />
       <div>
-        <video autoPlay loop className="absolute w-auto min-w-full min-h-full -z-10 brightness-75">
-          <source src="/Vividwave.mp4" />
+        <video autoPlay loop muted className="absolute object-cover w-full h-full -z-10 brightness-75">
+          <source src="/Vividwavers.mp4" type="video/mp4" />
         </video>
       </div>
       <main>

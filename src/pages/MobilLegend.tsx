@@ -4,6 +4,7 @@ import { getMobileLegend } from "../services/apiMobilLegend";
 import { useLoaderData } from "react-router-dom";
 
 interface Heroes {
+  hero_id: number;
   hero_name: string;
   hero_role: string;
   hero_specially: string;
@@ -50,9 +51,9 @@ export default function MobilLegend() {
         <p>🗿 {results.length} heroes found 🗿</p>
       </div>
       <div className="mx-auto mt-3 max-w-max">
-        <ul className="w-full h-[65vh] list-none overflow-auto flex flex-col gap-2">
+        <ul className="w-full h-[65vh] list-none overflow-y-auto flex flex-col gap-2">
           {results.map((data) => (
-            <li className="p-3">
+            <li className="p-3" key={data.hero_id}>
               <div className="shadow-xl card w-96 bg-base-100">
                 <div className="card-body">
                   <h2 className="card-title ">
