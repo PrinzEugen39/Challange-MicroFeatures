@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useState } from "react";
-import { getMobileLegend } from "../services/apiMobilLegend";
+import { getMobileLegend } from "../services/apiServices";
 import { useLoaderData } from "react-router-dom";
 
 interface Heroes {
@@ -27,6 +27,7 @@ export default function MobilLegend() {
   const hero = useLoaderData() as ApiResponse;
 
   const heroesArray: Heroes[] = Object.values(hero.hero);
+  
   const [filtered, setFiltered] = useState<string>("");
 
   const results =

@@ -4,6 +4,7 @@ import AppLayout from "./routes/AppLayout";
 import ErrorPage from "./routes/ErrorPage";
 import Home from "./UI/Home";
 import CurrecyConverter from "./pages/CurrecyConverter";
+import MemeGenerator from "./pages/MemeGenerator";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path:"currencyconverter",
         element: <CurrecyConverter />,
+      },
+      {
+        path:"meme",
+        element: <MemeGenerator />,
       }
     ]
   }

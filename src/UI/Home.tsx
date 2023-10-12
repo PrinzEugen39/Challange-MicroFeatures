@@ -9,9 +9,8 @@ export default function Home() {
       <div className="divider"></div>
 
       <div className="indicator">
-        <span className="indicator-item badge badge-primary">new</span>
         <Link to="/currencyconverter">
-          <button className="btn btn-accent">currencyconverter</button>
+          <button className="btn btn-accent">currency converter</button>
         </Link>
       </div>
       <div className="divider"></div>
@@ -19,6 +18,20 @@ export default function Home() {
         <span className="indicator-item badge badge-neutral">WIP</span>
         <button className="btn btn-error">
           <p>Tic Tac Toe</p>
+        </button>
+      </div>
+      <div className="divider"></div>
+      <div className="indicator">
+        <span className="indicator-item badge badge-neutral">new</span>
+        <Link to="/meme">
+          <button className="btn btn-accent">Meme generator</button>
+        </Link>
+      </div>
+      <div className="divider"></div>
+      <div className="indicator">
+        <span className="indicator-item badge badge-neutral">WIP</span>
+        <button className="btn btn-error">
+          <p>Salary Calculator</p>
         </button>
       </div>
     </div>

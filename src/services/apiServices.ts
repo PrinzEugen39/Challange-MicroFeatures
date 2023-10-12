@@ -6,3 +6,12 @@ export async function getMobileLegend() {
   const data = await res.json();
   return data;
 }
+
+export async function getMeme() {
+  const res = await fetch("https://meme-api.com/gimme");
+
+  if (!res.ok) throw Error("Failed getting meme");
+
+  const data = await res.json();
+  return data;
+}
