@@ -8,9 +8,14 @@ export default function AppLayout() {
   const isLoading = navigation.state === "loading";
 
   return (
-    <div className="h-screen">
+    <div>
       {isLoading && <Loader />}
       <Header />
+      <div>
+        <video autoPlay loop className="absolute w-auto min-w-full min-h-full -z-10 brightness-75">
+          <source src="/Vividwave.mp4" />
+        </video>
+      </div>
       <main>
         <Outlet />
       </main>

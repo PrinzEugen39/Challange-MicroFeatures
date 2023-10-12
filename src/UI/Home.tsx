@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center mt-10">
+    <div className="flex flex-col items-center py-20 h-fit">
       <Link to="/mobile-legend">
         <button className="btn btn-accent">mobile legend</button>
       </Link>

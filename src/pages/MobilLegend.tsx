@@ -24,21 +24,21 @@ export async function loader() {
 
 export default function MobilLegend() {
   const hero = useLoaderData() as ApiResponse;
-  
-  const heroesArray: Heroes[] = Object.values(hero.hero)
+
+  const heroesArray: Heroes[] = Object.values(hero.hero);
   const [filtered, setFiltered] = useState<string>("");
 
   const results =
-  filtered.length > 0
-    ? heroesArray.filter((post) =>
-        `${post.hero_name} ${post.hero_role}`
-          .toLowerCase()
-          .includes(filtered.toLowerCase())
-      )
-    : heroesArray;
+    filtered.length > 0
+      ? heroesArray.filter((post) =>
+          `${post.hero_name} ${post.hero_role}`
+            .toLowerCase()
+            .includes(filtered.toLowerCase())
+        )
+      : heroesArray;
 
   return (
-    <div>
+    <div className="mx-auto mt-1 p-7 bg-slate-50/50 max-w-max rounded-3xl">
       <div className="flex flex-col items-center">
         <h1 className="text-xl text-semibold ">Daftar Hero</h1>
         <input
@@ -47,31 +47,31 @@ export default function MobilLegend() {
           value={filtered}
           onChange={(e) => setFiltered(e.target.value)}
         />
-        <p>🗿 {heroesArray.length} heroes found 🗿</p>
+        <p>🗿 {results.length} heroes found 🗿</p>
       </div>
-      <div className="flex justify-center gap-2">
-        <button className="btn btn-primary">Search</button>
-        <button className="btn btn-primary">Reset</button>
-      </div>
-      <ul>
-        {results.map((data) => (
-          <li className="p-3">
-            <div className="shadow-xl card w-96 bg-base-100">
-              <div className="card-body">
-                <h2 className="card-title">
-                  {data.hero_name}
-                  <div className="badge badge-secondary">{data.hero_role}</div>
-                </h2>
-                <div className="justify-end card-actions">
-                  <div className="badge badge-outline">
-                    {data.hero_specially}
-                  </div>
+      <div className="mx-auto mt-3 max-w-max">
+        <ul className="w-full h-[65vh] list-none overflow-auto flex flex-col gap-2">
+          {results.map((data) => (
+            <li className="p-3">
+              <div className="shadow-xl card w-96 bg-base-100">
+                <div className="card-body">
+                  <h2 className="card-title ">
+                    {data.hero_name}
+                    <div className="card-actions">
+                      <div className="badge badge-secondary">
+                        {data.hero_role}
+                      </div>
+                      <div className="badge badge-outline">
+                        {data.hero_specially}
+                      </div>
+                    </div>
+                  </h2>
                 </div>
               </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
