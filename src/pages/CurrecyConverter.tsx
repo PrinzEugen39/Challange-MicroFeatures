@@ -11,9 +11,13 @@ export default function CurrecyConverter() {
     fetch(
       `https://${host}/latest?amount=${money}&from=${currency}&to=${convertCurrency}`
     )
-      .then((resp) => resp.json())
+      .then((res) => res.json())
       .then((data) => {
-        setConvertMoney(`${data.rates[convertCurrency]} ${convertCurrency}`);
+        const formatter = new Intl.NumberFormat("en-US" ,{
+          style: "currency",
+          currency: convertCurrency,
+        })
+        setConvertMoney(formatter.format(data.rates[convertCurrency]));
       });
   }
 
