@@ -9,16 +9,16 @@ export default function AppLayout() {
 
   return (
     <div>
-      {isLoading && <Loader />}
       <Header />
       <div>
-        <video autoPlay loop muted className="absolute object-cover w-full h-full -z-10 brightness-75">
+        <video autoPlay loop muted className="absolute object-cover w-full h-full -z-10 brightness-90">
           <source src="/Vividwavers.mp4" type="video/mp4" />
         </video>
       </div>
       <main>
         <Outlet />
       </main>
+      {isLoading && <Loader />}
     </div>
   );
 }
