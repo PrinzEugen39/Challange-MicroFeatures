@@ -5,6 +5,7 @@ import ErrorPage from "./routes/ErrorPage";
 import Home from "./UI/Home";
 import CurrecyConverter from "./pages/CurrecyConverter";
 import MemeGenerator from "./pages/MemeGenerator";
+import SalaryCalculator from "./pages/SalaryCalculator";
 
 const router = createBrowserRouter([
   {
@@ -21,12 +22,16 @@ const router = createBrowserRouter([
         loader: heroLoader,
       },
       {
-        path:"currencyconverter",
+        path:"/currencyconverter",
         element: <CurrecyConverter />,
       },
       {
-        path:"meme",
+        path:"/meme",
         element: <MemeGenerator />,
+      },
+      {
+        path:"/salary",
+        element: <SalaryCalculator />,
       }
     ]
   }
