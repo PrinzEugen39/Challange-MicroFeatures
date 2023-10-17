@@ -6,6 +6,7 @@ import Home from "./UI/Home";
 import CurrecyConverter from "./pages/CurrecyConverter";
 import MemeGenerator from "./pages/MemeGenerator";
 import SalaryCalculator from "./pages/SalaryCalculator";
+import TicTacToe from "./pages/TicTacToe";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
       {
         path:"/salary",
         element: <SalaryCalculator />,
-      }
+      },
+      {
+        path:"/tictactoe",
+        element: <TicTacToe />,
+      },
     ]
   }
 ])

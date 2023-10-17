@@ -6,9 +6,9 @@ export default function Header() {
   const location = useLocation();
 
   return (
-    <div className="justify-around navbar bg-gradient-to-r from-lime-400 to-green-700">
+    <div className="justify-around navbar bg-gradient-to-r from-lime-400 to-green-600">
       <div className="">
-        <Link to="/" className="">
+        <Link to="/">
           <span className="text-xl normal-case btn btn-ghost">
             Prinz Micro Features.
           </span>

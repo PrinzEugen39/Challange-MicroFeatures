@@ -10,21 +10,22 @@ export default function Home() {
 
       <div className="indicator">
         <Link to="/currencyconverter">
-          <button className="btn btn-accent">currency converter</button>
+          <button className="btn btn-error">currency converter</button>
         </Link>
       </div>
       <div className="divider"></div>
       <div className="indicator">
-        <span className="indicator-item badge badge-neutral">WIP</span>
-        <button className="btn btn-error">
-          <p>Tic Tac Toe</p>
-        </button>
+        <span className="indicator-item badge badge-primary">WIP</span>
+        <Link to="/tictactoe">
+          <button className="btn btn-warning">
+            <p>Tic Tac Toe</p>
+          </button>
+        </Link>
       </div>
       <div className="divider"></div>
       <div className="indicator">
-        <span className="indicator-item badge badge-primary">new</span>
         <Link to="/meme">
-          <button className="btn btn-accent">Meme generator</button>
+          <button className="btn btn-error">Meme generator</button>
         </Link>
       </div>
       <div className="divider"></div>
